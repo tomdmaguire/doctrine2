@@ -494,7 +494,7 @@ class SchemaTool
     public function getDropSchemaSql(array $classes)
     {
         $sm = $this->_em->getConnection()->getSchemaManager();
-        $schema = $sm->createSchema();
+        $schema = $sm->createSchema($classes);
 
         $visitor = new \Doctrine\DBAL\Schema\Visitor\DropSchemaSqlCollector($this->_platform);
         /* @var $schema \Doctrine\DBAL\Schema\Schema */
